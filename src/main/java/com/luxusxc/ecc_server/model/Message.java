@@ -18,14 +18,8 @@ public class Message {
     private String fromClient;
     private String toClient;
 
-    @Lob
-    private String ciphertext;
-    @Lob
-    private String ephemeralPubKey;
-    @Lob
+    private String cipherText;
     private String nonce;
-    @Lob
-    private String authTag;
 
     private long timestamp;
 }
