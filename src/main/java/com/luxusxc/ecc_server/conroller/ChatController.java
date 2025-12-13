@@ -47,11 +47,11 @@ public class ChatController {
         return ResponseEntity.ok("queued");
     }
 
-    @GetMapping("/messages/history/{clientA}/{clientB}")
-    public List<Message> getHistory(@PathVariable String clientA, @PathVariable String clientB) {
+    @GetMapping("/messages/history")
+    public List<Message> getHistory(String from, String to) {
         return messageRepository.findByFromClientAndToClientOrFromClientAndToClientOrderByTimestamp(
-                clientA, clientB,
-                clientB, clientA
+                from, to,
+                to, from
         );
     }
 }
