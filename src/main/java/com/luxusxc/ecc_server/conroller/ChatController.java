@@ -43,6 +43,9 @@ public class ChatController {
         if (!clientRepository.existsById(message.getToClient())) {
             return ResponseEntity.badRequest().body("Recipient not found");
         }
+        if (messageRepository.existsByNonce(message.getNonce())) {
+            return ResponseEntity.badRequest().body("Message duplicate");
+        }
         messageRepository.save(message);
         return ResponseEntity.ok("queued");
     }

@@ -19,6 +19,7 @@ public class Message {
     private String toClient;
 
     private String cipherText;
+    @Column(unique = true)
     private String nonce;
 
     private long timestamp;

@@ -9,4 +9,6 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findByFromClientAndToClientOrFromClientAndToClientOrderByTimestamp(
             String from1, String to1, String from2, String to2
     );
+
+    boolean existsByNonce(String nonce);
 }
