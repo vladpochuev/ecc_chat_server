@@ -22,9 +22,7 @@ public class ChatController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerClient(@RequestBody Client client) {
-        if (!clientRepository.existsById(client.getClientId())) {
-            clientRepository.save(client);
-        }
+        clientRepository.save(client);
         return ResponseEntity.ok().body("ok");
     }
 
